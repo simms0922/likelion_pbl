@@ -1,0 +1,54 @@
+body {
+    background-color: #eef4ff;
+}
+
+.profile-card {
+    width: 300px;
+    background-color: rgb(255, 255, 250);
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin: 30px;
+}
+
+.profile-card img {
+    width: 300px;
+    height: 300px;
+}
+
+.profile-card h2 {
+    margin-top: 10px;
+}
+
+.introduce {
+    width: 850px;
+    height: 680px;
+    background-color: rgb(255, 255, 250);
+    border-radius: 15px;
+    padding: 5px 30px;
+    margin: 30px;
+}
+
+.info-group {
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+}
+
+.info-group h4 {
+    font-weight: normal;
+}
+
+.content-section {
+    margin-bottom: 5px;
+}
+
+.content-section h3 {
+    margin-bottom: 10px;
+}
+
+.content-section ul {
+    padding-left: 30px;
+}
+
+.content-section li {
+    margin-bottom: 8px;
+}
