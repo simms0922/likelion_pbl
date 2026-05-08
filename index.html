@@ -8,7 +8,40 @@
 </head>
 <body>
     <main class="container">
-        <section class="summary-grid">
+        <section class="control-section">
+            <div class="control-top">
+                <button type="button" id="toggleFormBtn">아기 사자 추가</button>
+                <button type="button" id="deleteBtn">마지막 아기 사자 삭제</button>
+                <p id="countText">총 9명</p>
+            </div>
+
+            <form id="lionForm" class="lion-form hidden">
+                <input type="text" id="name" placeholder="이름" required>
+
+                <select id="part">
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Design">Design</option>
+                </select>
+
+                <input type="text" id="skills" placeholder="관심 기술 (쉼표로 구분)">
+                <input type="text" id="summary" placeholder="한 줄 소개">
+
+                <textarea id="intro" placeholder="자기소개"></textarea>
+
+                <input type="email" id="email" placeholder="이메일">
+                <input type="text" id="phone" placeholder="전화번호">
+                <input type="text" id="website" placeholder="웹사이트">
+                <input type="text" id="message" placeholder="한 마디">
+
+                <div class="form-buttons">
+                    <button type="submit">추가하기</button>
+                    <button type="button" id="cancelBtn">취소</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="summary-grid" id="summaryGrid">
             <article class="profile-card my-card">
                 <div class="image-container">
                     <img src="./image.jpg" alt="심민서 프로필">
@@ -101,7 +134,7 @@
 
         </section>
 
-        <section class="detail-list">
+        <section class="detail-list" id="detailList">
             <article class="introduce">
                 <div class="info-group">
                     <h1>심민서</h1>
@@ -425,8 +458,8 @@
                     <p>기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.</p>
                 </div>
             </article>
-
         </section>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>
