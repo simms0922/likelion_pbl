@@ -114,3 +114,99 @@ body {
 .content-section li {
     margin-bottom: 8px;
 }
+
+.control-section {
+    margin-bottom: 40px;
+}
+
+.control-top {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.control-top button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.control-top p {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.lion-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 40px;
+}
+
+.lion-form input,
+.lion-form select,
+.lion-form textarea {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.lion-form textarea {
+    min-height: 120px;
+    resize: vertical;
+    grid-column: span 2;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    grid-column: span 2;
+}
+
+.form-buttons button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 768px) {
+
+    .lion-form {
+        grid-template-columns: 1fr;
+    }
+
+    .lion-form textarea,
+    .form-buttons {
+        grid-column: span 1;
+    }
+
+    .introduce {
+        width: 90%;
+    }
+
+    .profile-card {
+        width: 90%;
+    }
+
+    .image-container {
+        width: 100%;
+        height: auto;
+    }
+}
