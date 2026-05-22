@@ -1,0 +1,136 @@
+export const lions = [
+  {
+    id: 1,
+    name: "심민서",
+    part: "Frontend",
+    isMe: true,
+    summary: "프론트엔드 공부 중!",
+    skills: ["HTML / CSS", "JavaScript", "React"],
+    intro: "HTML/CSS부터 JavaScript까지, 탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-0000-0000",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+  
+{
+    id: 2,
+    name: "김아기사자",
+    part: "Frontend",
+    isMe: false,
+    summary: "열심히 하겠습니다!",
+    skills: ["JavaScript", "HTML / CSS", "React"],
+    intro: "탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-1111-1111",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+
+  {
+    id: 3,
+    name: "이아기사자",
+    part: "Backend",
+    isMe: false,
+    summary: "열심히 하겠습니다!",
+    skills: ["Spring", "Java", "MySQL"],
+    intro: "탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-2222-2222",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+
+  {
+    id: 4,
+    name: "박아기사자",
+    part: "Design",
+    isMe: false,
+    summary: "열심히 하겠습니다!",
+    skills: ["Figma", "Adobe XD", "Photoshop"],
+    intro: "탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-3333-3333",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+
+  {
+    id: 5,
+    name: "최아기사자",
+    part: "Frontend",
+    isMe: false,
+    summary: "열심히 하겠습니다!",
+    skills: ["TypeScript", "HTML / CSS", "React"],
+    intro: "HTML/CSS부터 JavaScript까지, 탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-4444-4444",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+
+  {
+    id: 6,
+    name: "정아기사자",
+    part: "Backend",
+    isMe: false,
+    summary: "열심히 하겠습니다!",
+    skills: ["Node.js", "Java", "MySQL"],
+    intro: "탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-5555-5555",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+
+  {
+    id: 7,
+    name: "오아기사자",
+    part: "Frontend",
+    isMe: false,
+    summary: "열심히 하겠습니다!",
+    skills: ["React", "JavaScript", "HTML / CSS"],
+    intro: "HTML/CSS부터 JavaScript까지, 탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-6666-6666",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+
+  {
+    id: 8,
+    name: "심아기사자",
+    part: "Frontend",
+    isMe: false,
+    summary: "열심히 하겠습니다!",
+    skills: ["HTML / CSS", "JavaScript", "React"],
+    intro: "HTML/CSS부터 JavaScript까지, 탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-7777-7777",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+
+  {
+    id: 9,
+    name: "장아기사자",
+    part: "Frontend",
+    isMe: false,
+    summary: "열심히 하겠습니다!",
+    skills: ["HTML / CSS", "JavaScript", "React"],
+    intro: "HTML/CSS부터 JavaScript까지, 탄탄한 기초를 바탕으로 사용자에게 안정적인 인터페이스를 제공할 수 있도록 하겠습니다.",
+    email: "simms0922@naver.com",
+    phone: "010-8888-8888",
+    website: "https://github.com/simms0922/likelion_pbl",
+    message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
+    organization: "멋쟁이사자처럼 14기"
+  },
+];
