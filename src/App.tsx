@@ -3,27 +3,28 @@ import { Routes, Route } from 'react-router-dom';
 import './styles/style.css'; 
 import { lions as initialLions } from './data/lions';
 import { transformLionData } from './utils/transformData';
+import { Lion } from './types/lion'; 
 
 import List from './pages/List';
 import Detail from './pages/Detail';
 
 function App() {
-  const [lionList, setLionList] = useState([]);
-  const [fetchStatus, setFetchStatus] = useState('준비 완료');
-  const [lastRequest, setLastRequest] = useState({ count: 1, isReplace: false });
+  const [lionList, setLionList] = useState<Lion[]>([]);
+  const [fetchStatus, setFetchStatus] = useState<string>('준비 완료');
+  const [lastRequest, setLastRequest] = useState<{ count: number; isReplace: boolean }>({ count: 1, isReplace: false });
 
   useEffect(() => {
     setLionList(initialLions);
   }, []);
 
-  const fetchRandomLions = async (count, isReplace = false) => {
+  const fetchRandomLions = async (count: number, isReplace: boolean = false) => {
     setFetchStatus('불러오는 중...');
     setLastRequest({ count, isReplace }); 
     try {
       const res = await fetch(`https://randomuser.me/api/?results=${count}&nat=us,gb,ca,au,nz`);
       if (!res.ok) throw new Error('네트워크 응답이 올바르지 않습니다.');
       const data = await res.json();
-      const newLions = data.results.map(transformLionData);
+      const newLions: Lion[] = data.results.map(transformLionData);
 
       if (isReplace) {
         setLionList((prev) => {

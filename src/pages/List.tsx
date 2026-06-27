@@ -2,15 +2,35 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate, Link } from 'react-router-dom';
 import SummaryCard from '../components/SummaryCard';
 import { transformLionData } from '../utils/transformData';
+import { Lion } from '../types/lion'; 
 
-function List({ lionList, setLionList, fetchRandomLions, fetchStatus, lastRequest }) {
+interface ListProps {
+  lionList: Lion[];
+  setLionList: React.Dispatch<React.SetStateAction<Lion[]>>;
+  fetchRandomLions: (count: number, isReplace?: boolean) => void;
+  fetchStatus: string;
+  lastRequest: { count: number; isReplace: boolean };
+}
+
+interface FormData {
+  name: string;
+  part: string;
+  skills: string;
+  summary: string;
+  detail: string;
+  email: string;
+  phone: string;
+  website: string;
+  oneWord: string;
+}
+
+function List({ lionList, setLionList, fetchRandomLions, fetchStatus, lastRequest }: ListProps) {
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const filterPart = searchParams.get('part') || 'all';
   const sortOrder = searchParams.get('sort') || 'newest';
   const searchTerm = searchParams.get('q') || '';
-
-  const updateParams = (key, value) => {
+  const updateParams = (key: string, value: string) => {
     const newParams = new URLSearchParams(searchParams);
     
     if (value === 'all' || value === 'newest' || value === '') {
@@ -26,18 +46,20 @@ function List({ lionList, setLionList, fetchRandomLions, fetchStatus, lastReques
     .filter(lion => lion.name.toLowerCase().includes(searchTerm.toLowerCase()))
     .sort((a, b) => {
       if (sortOrder === 'name') return a.name.localeCompare(b.name);
-      return b.id.localeCompare ? b.id.localeCompare(a.id) : b.id - a.id;
+      return String(b.id).localeCompare(String(a.id));
     });
 
-  const [isFormOpen, setIsFormOpen] = useState(false);
-  const [localSearchTerm, setLocalSearchTerm] = useState(searchParams.get('q') || '');
+  const [isFormOpen, setIsFormOpen] = useState<boolean>(false);
+  const [localSearchTerm, setLocalSearchTerm] = useState<string>(searchParams.get('q') || '');
+  
   useEffect(() => {
     const timer = setTimeout(() => {
       updateParams('q', localSearchTerm);
     }, 200);
     return () => clearTimeout(timer);
   }, [localSearchTerm]);
-  const [formData, setFormData] = useState({
+
+  const [formData, setFormData] = useState<FormData>({
     name: '', part: 'Frontend', skills: '', summary: '', 
     detail: '', email: '', phone: '', website: '', oneWord: ''
   });
@@ -56,26 +78,34 @@ function List({ lionList, setLionList, fetchRandomLions, fetchStatus, lastReques
   };
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isFormOpen) handleCloseForm();
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isFormOpen]);
 
-  const handleAddSubmit = (e) => {
+  const handleAddSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const isAllFilled = Object.values(formData).every(value => typeof value === 'string' && value.trim() !== '');
     if (!isAllFilled) {
       alert('모든 필드를 빈칸 없이 꼼꼼히 채워주세요!');
       return;
     }
-    const newLion = {
+
+    const newLion: Lion = {
       id: crypto.randomUUID(),
-      name: formData.name, part: formData.part, summary: formData.summary,
+      name: formData.name, 
+      part: formData.part, 
+      summary: formData.summary,
       skills: formData.skills ? formData.skills.split(',').map(s => s.trim()) : ['열정'],
-      email: formData.email, phone: formData.phone, website: formData.website,
-      oneWord: formData.oneWord, detail: formData.detail, picture: '/image.jpg', isMe: false
+      email: formData.email, 
+      phone: formData.phone, 
+      website: formData.website,
+      intro: formData.detail,
+      message: formData.oneWord,
+      organization: "멋쟁이사자처럼 14기",
+      isMe: false
     };
     setLionList((prev) => [...prev, newLion]);
     handleCloseForm();
@@ -89,10 +119,15 @@ function List({ lionList, setLionList, fetchRandomLions, fetchStatus, lastReques
       const apiUser = data.results[0];
       const transformed = transformLionData(apiUser);
       setFormData({
-        name: transformed.name, part: transformed.part, skills: 'JavaScript, React, HTML/CSS',
+        name: transformed.name, 
+        part: transformed.part, 
+        skills: 'JavaScript, React, HTML/CSS',
         summary: `${transformed.part} · ${transformed.location}에서 합류했어요!`,
-        detail: '비동기 데이터를 화면에 그립니다.', email: transformed.email,
-        phone: apiUser.phone, website: `https://example.com/${transformed.name}`, oneWord: '데이터가 바뀌면 UI도 바뀐다!'
+        detail: '비동기 데이터를 화면에 그립니다.', 
+        email: transformed.email,
+        phone: apiUser.phone, 
+        website: `https://example.com/${transformed.name}`, 
+        oneWord: '데이터가 바뀌면 UI도 바뀐다!'
       });
     } catch (error) {
       alert('랜덤 데이터를 불러오는데 실패했습니다.');
@@ -175,7 +210,7 @@ function List({ lionList, setLionList, fetchRandomLions, fetchStatus, lastReques
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <label style={{ fontSize: '13px', fontWeight: 'bold', color: '#555' }}>자기소개</label>
-              <textarea rows="4" value={formData.detail} onChange={(e) => setFormData({ ...formData, detail: e.target.value })} style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '6px' }}></textarea>
+              <textarea rows={4} value={formData.detail} onChange={(e) => setFormData({ ...formData, detail: e.target.value })} style={{ padding: '10px', border: '1px solid #ccc', borderRadius: '6px' }}></textarea>
             </div>
             <div style={{ display: 'flex', gap: '20px' }}>
               <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '8px' }}>

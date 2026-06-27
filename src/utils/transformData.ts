@@ -1,4 +1,26 @@
-export const transformLionData = (apiResult) => {
+interface RandomUserApiResult {
+  login: { uuid: string };
+  name: { first: string; last: string };
+  picture: { large: string };
+  email: string;
+  location: { country: string };
+  dob: { age: number };
+}
+
+interface TransformedData {
+  id: string;
+  name: string;
+  part: string;
+  picture: string;
+  email: string;
+  location: string;
+  age: number;
+  skills: string[];
+  summary: string;
+  isMe: boolean;
+}
+
+export const transformLionData = (apiResult: RandomUserApiResult): TransformedData => {
   const parts = ['Frontend', 'Backend', 'Design'];
   const randomPart = parts[Math.floor(Math.random() * parts.length)];
 

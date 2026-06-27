@@ -1,6 +1,11 @@
 import React from 'react';
+import { Lion } from '../types/lion'; 
 
-function SummaryCard({ lion }) {
+interface SummaryCardProps {
+  lion: Lion;
+}
+
+function SummaryCard({ lion }: SummaryCardProps) {
   return (
     <article className={`profile-card ${lion.isMe ? 'my-card' : ''}`}>
       <div className="image-container">
@@ -13,4 +18,5 @@ function SummaryCard({ lion }) {
     </article>
   );
 }
+
 export default SummaryCard;

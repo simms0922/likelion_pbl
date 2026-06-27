@@ -1,6 +1,11 @@
 import React from 'react';
+import { Lion } from '../types/lion';
 
-function DetailCard({ lion }) {
+interface DetailCardProps {
+  lion: Lion;
+}
+
+function DetailCard({ lion }: DetailCardProps) {
   return (
     <article className="introduce">
       <div className="info-group">
@@ -33,4 +38,5 @@ function DetailCard({ lion }) {
     </article>
   );
 }
+
 export default DetailCard;

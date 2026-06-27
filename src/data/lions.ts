@@ -1,4 +1,6 @@
-export const lions = [
+import { Lion } from '../types/lion';
+
+export const lions: Lion[] = [
   {
     id: 1,
     name: "심민서",
@@ -13,8 +15,7 @@ export const lions = [
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
   },
-  
-{
+  {
     id: 2,
     name: "김아기사자",
     part: "Frontend",
@@ -28,7 +29,6 @@ export const lions = [
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
   },
-
   {
     id: 3,
     name: "이아기사자",
@@ -43,7 +43,6 @@ export const lions = [
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
   },
-
   {
     id: 4,
     name: "박아기사자",
@@ -58,7 +57,6 @@ export const lions = [
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
   },
-
   {
     id: 5,
     name: "최아기사자",
@@ -73,7 +71,6 @@ export const lions = [
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
   },
-
   {
     id: 6,
     name: "정아기사자",
@@ -88,7 +85,6 @@ export const lions = [
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
   },
-
   {
     id: 7,
     name: "오아기사자",
@@ -103,7 +99,6 @@ export const lions = [
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
   },
-
   {
     id: 8,
     name: "심아기사자",
@@ -118,7 +113,6 @@ export const lions = [
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
   },
-
   {
     id: 9,
     name: "장아기사자",
@@ -132,5 +126,5 @@ export const lions = [
     website: "https://github.com/simms0922/likelion_pbl",
     message: "기초부터 단단하게 쌓아 올려, 어떤 기술 앞에서도 빠르게 적응하고 성과를 내는 개발자가 되겠습니다.",
     organization: "멋쟁이사자처럼 14기"
-  },
+  }
 ];

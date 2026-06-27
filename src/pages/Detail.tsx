@@ -1,9 +1,14 @@
 import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import DetailCard from '../components/DetailCard';
+import { Lion } from '../types/lion';
 
-function Detail({ lionList }) {
-  const { id } = useParams(); 
+interface DetailProps {
+  lionList: Lion[];
+}
+
+function Detail({ lionList }: DetailProps) {
+  const { id } = useParams<{ id: string }>(); 
   const navigate = useNavigate();
 
   const targetLion = lionList.find(lion => String(lion.id) === String(id));
