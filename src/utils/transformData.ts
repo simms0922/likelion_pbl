@@ -1,40 +1,21 @@
-interface RandomUserApiResult {
-  login: { uuid: string };
-  name: { first: string; last: string };
-  picture: { large: string };
-  email: string;
-  location: { country: string };
-  dob: { age: number };
-}
+import { Database } from '../types/database';
+import { Lion } from '../types/lion';
 
-interface TransformedData {
-  id: string;
-  name: string;
-  part: string;
-  picture: string;
-  email: string;
-  location: string;
-  age: number;
-  skills: string[];
-  summary: string;
-  isMe: boolean;
-}
+type LionRow = Database['public']['Tables']['lions']['Row'];
 
-export const transformLionData = (apiResult: RandomUserApiResult): TransformedData => {
-  const parts = ['Frontend', 'Backend', 'Design'];
-  const randomPart = parts[Math.floor(Math.random() * parts.length)];
-
+export const transformLionData = (row: LionRow): Lion => {
   return {
-    id: apiResult.login.uuid,
-    name: `${apiResult.name.first} ${apiResult.name.last}`,
-    part: randomPart,
-    picture: apiResult.picture.large,
-    email: apiResult.email,
-    location: apiResult.location.country,
-    age: apiResult.dob.age,
-
-    skills: ['열정', '노력'],
-    summary: '반갑습니다! 새로 합류한 아기 사자입니다.',
-    isMe: false
+    id: row.id,
+    name: row.name,
+    part: row.part,
+    isMe: row.is_me, // DB의 is_me를 isMe로 변환
+    summary: row.summary,
+    skills: row.skills,
+    intro: row.intro,
+    email: row.email,
+    phone: row.phone,
+    website: row.website,
+    message: row.message,
+    organization: row.organization
   };
 };

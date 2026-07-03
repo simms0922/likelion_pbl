@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './styles/style.css'; 
 import { lions as initialLions } from './data/lions';
 import { transformLionData } from './utils/transformData';
 import { Lion } from './types/lion'; 
 
-import List from './pages/List';
-import Detail from './pages/Detail';
+import HomePage from './pages/HomePage';       // 이름 변경됨
+import DetailPage from './pages/DetailPage';   // 이름 변경됨
+import LoginPage from './pages/LoginPage';     // 새로 추가됨
 
 function App() {
   const [lionList, setLionList] = useState<Lion[]>([]);
@@ -43,22 +44,10 @@ function App() {
 
   return (
     <Routes>
-      <Route 
-        path="/" 
-        element={
-          <List 
-            lionList={lionList} 
-            setLionList={setLionList}
-            fetchRandomLions={fetchRandomLions}
-            fetchStatus={fetchStatus}
-            lastRequest={lastRequest}
-          />
-        } 
-      />
-      <Route 
-        path="/lions/:id" 
-        element={<Detail lionList={lionList} />} 
-      />
+      {/* 복잡했던 Props를 다 지우고 깔끔하게 컴포넌트만 남깁니다! */}
+      <Route path="/" element={<HomePage />} />
+      <Route path="/lions/:id" element={<DetailPage />} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 }
